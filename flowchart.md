@@ -9,33 +9,33 @@ classDiagram
     AbstractFactory <|.. BankFactory
     AbstractFactory <|.. LoanFactory
     class Bank{
-        + getBankName(): String
+        <<Abstract>>
+        - bankName: String
+        - adress: String
+        - phoneNumber: String
     }
     class ING{
-        - bankName: String
-        + getBankName(): String
     }
     class ABNAMRO{
-        - bankName: String
-        + getBankName(): String
     }
     class Rabobank{
-        - bankName: String
-        + getBankName(): String
     }
 
     class Loan{
         <<Abstract>>
-        + calculateLoanPayment(loanAmount: double, years: int): void
+        + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class HomeLoan{
-        + calculateLoanPayment(loanAmount: double, years: int): void
+        - rate: double
+        + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class BussinessLoan{
-        + calculateLoanPayment(double: loanamount, int: years): void
+        - rate: double
+        + calculateLoanPayment(double: loanamount, int: years): double
     }
     class EducationLoan{
-        + calculateLoanPayment(loanAmount: double, years: int): void
+        - rate: double
+        + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class AbstractFactory{
         <<Abstract>>
