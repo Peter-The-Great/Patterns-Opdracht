@@ -8,6 +8,11 @@ classDiagram
     Loan <|.. EducationLoan
     AbstractFactory <|.. BankFactory
     AbstractFactory <|.. LoanFactory
+    FactoryCreator --  AbstractFactory: Uses
+    BankFactory -- Bank: Uses
+    LoanFactory -- Loan: Uses
+    BankFactory -- Loan: Uses
+    LoanFactory -- Bank: Uses
     class Bank{
         <<Abstract>>
         - bankName: String
@@ -23,18 +28,16 @@ classDiagram
 
     class Loan{
         <<Abstract>>
+        - rate: double
         + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class HomeLoan{
-        - rate: double
         + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class BussinessLoan{
-        - rate: double
         + calculateLoanPayment(double: loanamount, int: years): double
     }
     class EducationLoan{
-        - rate: double
         + calculateLoanPayment(loanAmount: double, years: int): double
     }
     class AbstractFactory{
